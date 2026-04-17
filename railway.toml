@@ -1,0 +1,15 @@
+# Railway deployment config  https://docs.railway.app/reference/config-as-code
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "node server.js"
+healthcheckPath = "/"
+healthcheckTimeout = 120
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 5
+
+[[deploy.environmentVariables]]
+name  = "CI"
+value = "1"

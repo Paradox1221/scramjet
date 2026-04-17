@@ -1,0 +1,12 @@
+# Render deployment config  https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: scramjet
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    # Render injects PORT automatically; server.js already reads process.env.PORT
+    envVars:
+      - key: CI
+        value: "1"
+    healthCheckPath: /
+    autoDeploy: true

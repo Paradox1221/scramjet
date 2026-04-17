@@ -1,0 +1,31 @@
+# Fly.io deployment config  https://fly.io/docs/reference/configuration/
+#
+# Before deploying, replace "scramjet-app" below with your chosen app name
+# (or let `flyctl launch` generate one for you).
+#
+app            = "scramjet-app"
+primary_region = "iad"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  CI   = "1"
+  PORT = "8080"
+
+[http_service]
+  internal_port       = 8080
+  force_https         = true
+  auto_stop_machines  = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type       = "connections"
+    hard_limit = 250
+    soft_limit = 200
+
+[[vm]]
+  memory   = "1gb"
+  cpu_kind = "shared"
+  cpus     = 1

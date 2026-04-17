@@ -1,0 +1,20 @@
+# --- build artefacts (will be created inside the container) ---
+node_modules
+dist
+lib
+rewriter/target
+rewriter/wasm/out
+
+# --- local dev / CI output ---
+staticbuild
+_docs
+_docs-dev
+existing-typedoc
+existing-typedoc-dev
+playwright-report
+test-results
+
+# --- misc ---
+*.tgz
+package-lock.json
+.git
