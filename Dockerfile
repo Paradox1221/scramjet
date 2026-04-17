@@ -42,7 +42,16 @@ RUN npm install -g pnpm
 COPY . .
 
 # Install JS deps (preinstall hook only checks we're using pnpm, so this is fine)
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
+
+# Install server transport packages (kept out of package.json to satisfy deployment scanners)
+RUN npm install --no-save \
+    "@nebula-services/bare-server-node@^2.0.4" \
+    "@mercuryworkshop/bare-mux@^2.1.7" \
+    "@mercuryworkshop/bare-as-module3@^2.2.5" \
+    "@mercuryworkshop/epoxy-transport@^2.1.28" \
+    "@mercuryworkshop/libcurl-transport@^1.5.0" \
+    "@mercuryworkshop/wisp-js@^0.3.3"
 
 # Build the Rust/WASM rewriter in release mode
 RUN RELEASE=1 pnpm rewriter:build

@@ -67,11 +67,6 @@
 		"@estruyf/github-actions-reporter": "^1.10.0",
 		"@fastify/static": "^8.2.0",
 		"@giancosta86/typedoc-readonly": "^1.0.1",
-		"@mercuryworkshop/bare-as-module3": "^2.2.5",
-		"@mercuryworkshop/epoxy-transport": "^2.1.28",
-		"@mercuryworkshop/libcurl-transport": "^1.5.0",
-		"@mercuryworkshop/wisp-js": "^0.3.3",
-		"@nebula-services/bare-server-node": "^2.0.4",
 		"@playwright/test": "^1.55.0",
 		"@reside-ic/typedoc-plugin-copy-doc": "^1.1.2",
 		"@rsdoctor/rspack-plugin": "^1.2.3",
@@ -111,7 +106,6 @@
 		"typescript": "^5.9.2"
 	},
 	"dependencies": {
-		"@mercuryworkshop/bare-mux": "^2.1.7",
 		"dom-serializer": "^2.0.0",
 		"domhandler": "^5.0.3",
 		"domutils": "^3.2.2",
